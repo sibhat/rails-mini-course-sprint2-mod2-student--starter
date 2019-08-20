@@ -32,6 +32,7 @@ module Api
       private
 
       def order_product_params
+        puts params
         params.require(:product).permit(:product_id)
       end
     end

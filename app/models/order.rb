@@ -4,9 +4,10 @@ class Order < ApplicationRecord
         @product_ids = OrderProduct.where(order_id: id).pluck(:product_id)
         @products = Product.find(@product_ids)
     end
+
     def shippable?
         products
-        return products.length >= 1 && status != "shipped"
+        products.length >= 1 && status != "shipped"
     end
     def ship
         unless shippable?
@@ -20,3 +21,4 @@ class Order < ApplicationRecord
     end
 
 end
+
